@@ -17,7 +17,7 @@
 //     const fetchData = async () => {
 //       setLoading(true);
 //       try {
-//         const response = await axios.get(`http://localhost:5000/api/work/${workKey}/${seasonKey}`);
+//         const response = await axios.get(`http://3.35.55.228:5000/api/work/${workKey}/${seasonKey}`);
 //         setSeasonDetails(response.data);
 //         setLoading(false);
 //       } catch (error) {
@@ -84,7 +84,7 @@
 //                       <Image
 //                         key={index}
 //                         width={200}
-//                         src={`http://localhost:5000${img.image_url}`}
+//                         src={`http://3.35.55.228:5000${img.image_url}`}
 //                         alt={`장소 이미지 ${index + 1}`}
 //                       />
 //                     ))}
@@ -124,7 +124,7 @@ function SeasonDetailPage() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:5000/api/work/${workKey}/${seasonKey}`);
+        const response = await axios.get(`http://3.35.55.228:5000/api/work/${workKey}/${seasonKey}`);
         setSeasonDetails(response.data);
         setLoading(false);
       } catch (error) {
@@ -196,7 +196,7 @@ function SeasonDetailPage() {
                       <Image
                         key={index}
                         width={200}
-                        src={`http://localhost:5000${img.image_url}`}
+                        src={`http://3.35.55.228:5000${img.image_url}`}
                         alt={`장소 이미지 ${index + 1}`}
                       />
                     ))}

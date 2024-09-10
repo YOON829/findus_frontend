@@ -13,7 +13,7 @@ function RegionListPage() {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/regions')
+    axios.get('http://3.35.55.228:5000//api/regions')
       .then(response => setRegions(response.data))
       .catch(error => console.error('Error fetching regions:', error));
   }, []);

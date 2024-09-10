@@ -16,7 +16,7 @@ function DistrictListPage() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/regions/${regionKey}/${cityKey}`)  // API 요청
+    axios.get(`http://3.35.55.228:5000/api/regions/${regionKey}/${cityKey}`)  // API 요청
       .then(response => {
         setPlaces(response.data);
         setLoading(false);

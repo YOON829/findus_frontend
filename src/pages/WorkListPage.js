@@ -20,7 +20,7 @@ function WorkListPage() {
 
   useEffect(() => {
     // 컴포넌트가 마운트될 때 모든 작품 목록을 가져옵니다.
-    axios.get('http://localhost:5000/api/work/all')  // 서버의 API 엔드포인트로부터 작품 목록을 가져옵니다.
+    axios.get('http://3.35.55.228:5000/api/work/all')  // 서버의 API 엔드포인트로부터 작품 목록을 가져옵니다.
       .then(response => {
         setWorks(response.data);  // 응답받은 데이터를 works 상태에 저장합니다.
         setLoading(false);  // 데이터 로딩이 완료되면 로딩 상태를 false로 설정합니다.

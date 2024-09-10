@@ -52,7 +52,7 @@ const LocationRegistrationForm = () => {
     });
 
     try {
-      const response = await axios.post('http://localhost:5000/register-location', formDataToSend, {
+      const response = await axios.post('http://3.35.55.228:5000/register-location', formDataToSend, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       console.log('Location registered:', response.data);

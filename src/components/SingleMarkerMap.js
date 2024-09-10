@@ -25,7 +25,7 @@ function SingleMarkerMap({ markerId }) {
     const fetchMarkerData = async () => {
       try {
         // API에서 특정 장소의 데이터를 가져옴
-        const markerResponse = await axios.get(`http://localhost:5000/api/place/${markerId}`);
+        const markerResponse = await axios.get(`http://3.35.55.228:5000/api/place/${markerId}`);
         setMarkerData(markerResponse.data);  // 가져온 데이터를 상태에 저장
 
         const images = markerResponse.data.Images;
@@ -143,7 +143,7 @@ function SingleMarkerMap({ markerId }) {
             {aniPlaceImages.map((image, index) => (
               <div key={index}>
                 <img
-                  src={`http://localhost:5000${image.image_url}`}
+                  src={`http://3.35.55.228:5000${image.image_url}`}
                   alt={`Location ${index + 1}`}
                   onError={() => handleImageError(index, 'aniPlace')}  // 이미지 로드 오류 처리
                 />
@@ -166,7 +166,7 @@ function SingleMarkerMap({ markerId }) {
             {otherImages.map((image, index) => (
               <div key={index}>
                 <img
-                  src={`http://localhost:5000${image.image_url}`}
+                  src={`http://3.35.55.228:5000${image.image_url}`}
                   alt={`Location ${index + 1}`}
                   onError={() => handleImageError(index, 'other')}  // 이미지 로드 오류 처리
                 />

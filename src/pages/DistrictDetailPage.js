@@ -18,7 +18,7 @@ function DistrictDetailPage() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/regions/${regionKey}/${cityKey}/${districtKey}`)  // 해당 구역의 API 요청
+    axios.get(`http://3.35.55.228:5000/api/regions/${regionKey}/${cityKey}/${districtKey}`)  // 해당 구역의 API 요청
       .then(response => {
         setPlaces(response.data);
         setLoading(false);
@@ -64,7 +64,7 @@ function DistrictDetailPage() {
                         <Image
                           key={imgIndex}
                           width={200}
-                          src={`http://localhost:5000${img.image_url}`}  // 서버 주소와 경로를 결합
+                          src={`http://3.35.55.228:5000${img.image_url}`}  // 서버 주소와 경로를 결합
                           alt={`장소 이미지 ${imgIndex + 1}`}
                         />
                       ))

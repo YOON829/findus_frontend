@@ -15,7 +15,7 @@ function CityListPage() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/regions/${regionKey}`)  // API 요청
+    axios.get(`http://3.35.55.228:5000/api/regions/${regionKey}`)  // API 요청
       .then(response => {
         setData(response.data);  // 지역과 도시 목록을 상태에 저장
         setLoading(false);

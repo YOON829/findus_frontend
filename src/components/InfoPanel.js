@@ -8,13 +8,13 @@
 //   useEffect(() => {
 //     if (selectedMarker) {
 //       // Fetch Work data
-//       fetch(`http://localhost:5000/api/work/${selectedMarker.work_id}`)
+//       fetch(`http://3.35.55.228:5000/api/work/${selectedMarker.work_id}`)
 //         .then(response => response.json())
 //         .then(data => setWork(data))
 //         .catch(error => console.error('Error fetching work:', error));
 //
 //       // Fetch Images data
-//       fetch(`http://localhost:5000/api/place/${selectedMarker.place_id}`)
+//       fetch(`http://3.35.55.228:5000/api/place/${selectedMarker.place_id}`)
 //         .then(response => response.json())
 //         .then(data => {
 //           if (data.Images && Array.isArray(data.Images)) {
@@ -33,7 +33,7 @@
 //     if (images.length === 0) return null;
 //
 //     return images.map((img, index) => {
-//       const imageUrl = `http://localhost:5000${img.image_url}`;
+//       const imageUrl = `http://3.35.55.228:5000${img.image_url}`;
 //       return (
 //         <img
 //           key={index}
@@ -127,7 +127,7 @@ const InfoPanel = ({ selectedMarker }) => {
   useEffect(() => {
     if (selectedMarker) {
       // Fetch Place data (which includes Work and Images data)
-      fetch(`http://localhost:5000/api/place/${selectedMarker.place_id}`)
+      fetch(`http://3.35.55.228:5000/api/place/${selectedMarker.place_id}`)
         .then(response => response.json())
         .then(data => {
           if (data.Work) {
@@ -149,7 +149,7 @@ const InfoPanel = ({ selectedMarker }) => {
     if (images.length === 0) return null;
 
     return images.map((img, index) => {
-      const imageUrl = `http://localhost:5000${img.image_url}`;
+      const imageUrl = `http://3.35.55.228:5000${img.image_url}`;
       return (
         <img
           key={index}

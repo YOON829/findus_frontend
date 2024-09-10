@@ -15,7 +15,7 @@ function SeasonListPage() {
 
   useEffect(() => {
     setLoading(true);  // 데이터 요청을 시작할 때 로딩 상태를 true로 설정합니다.
-    axios.get(`http://localhost:5000/api/work/${workKey}`)  // 주어진 workKey를 사용하여 API에서 작품 정보를 가져옵니다.
+    axios.get(`http://3.35.55.228:5000/api/work/${workKey}`)  // 주어진 workKey를 사용하여 API에서 작품 정보를 가져옵니다.
       .then(response => {
         setWorkDetails(response.data);  // 가져온 데이터를 상태로 저장합니다.
         setLoading(false);  // 데이터 요청이 완료되면 로딩 상태를 false로 설정합니다.

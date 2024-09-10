@@ -11,7 +11,7 @@ function SingleMarkerPage() {
   useEffect(() => {
     const fetchMarkerData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/place/${id}`);
+        const response = await axios.get(`http://3.35.55.228:5000/api/place/${id}`);
         setMarkerData(response.data);
       } catch (error) {
         console.error('Error fetching marker data:', error);

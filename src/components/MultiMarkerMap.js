@@ -19,7 +19,7 @@ function MultiMarkerMap() { //컴포넌트는 대문자로 시작
 
   useEffect(() => {
     // 모든 장소 정보와 해당 장소에 연결된 이미지를 가져오는 API 호출
-    axios.get('http://localhost:5000/api/place')
+    axios.get('http://3.35.55.228:5000/api/place')
       .then(response => {
         setLocations(response.data); // 모든 위치 정보 저장
 
