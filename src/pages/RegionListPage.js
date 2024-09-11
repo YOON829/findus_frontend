@@ -3,9 +3,15 @@ import { Link, useNavigate } from 'react-router-dom'; // useNavigate 추가
 import axios from 'axios';
 import { getMappedValue } from '../services/mapping'; // mappings.js 파일에서 함수 가져오기
 
+
+const apiUrl = process.env.REACT_APP_API_URL;
+
+
 function RegionListPage() {
   const [regions, setRegions] = useState([]);
   const navigate = useNavigate();  // useNavigate 훅 사용
+
+
 
   // 뒤로 가기 함수
   const goBack = () => {
@@ -13,7 +19,7 @@ function RegionListPage() {
   };
 
   useEffect(() => {
-    axios.get('http://3.35.55.228:5000//api/regions')
+    axios.get(`${apiUrl}/api/regions`)
       .then(response => setRegions(response.data))
       .catch(error => console.error('Error fetching regions:', error));
   }, []);

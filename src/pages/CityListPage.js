@@ -3,6 +3,9 @@ import { useParams, Link, useNavigate } from 'react-router-dom'; // useNavigate 
 import axios from 'axios';
 import { getMappedValue } from '../services/mapping'; // 매핑 함수 가져오기
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
+
 function CityListPage() {
   const { regionKey } = useParams();  // URL에서 regionKey를 추출
   const [data, setData] = useState({ region: '', cities: [] });  // 지역과 도시 데이터
@@ -15,7 +18,7 @@ function CityListPage() {
   };
 
   useEffect(() => {
-    axios.get(`http://3.35.55.228:5000/api/regions/${regionKey}`)  // API 요청
+    axios.get(`${apiUrl}/api/regions/${regionKey}`)  // API 요청
       .then(response => {
         setData(response.data);  // 지역과 도시 목록을 상태에 저장
         setLoading(false);

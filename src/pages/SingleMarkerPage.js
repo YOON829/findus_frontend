@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import SingleMarkerMap from '../components/SingleMarkerMap';
 
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function SingleMarkerPage() {
   const { id } = useParams();  // URL 파라미터에서 id를 가져옴
@@ -11,7 +12,7 @@ function SingleMarkerPage() {
   useEffect(() => {
     const fetchMarkerData = async () => {
       try {
-        const response = await axios.get(`http://3.35.55.228:5000/api/place/${id}`);
+        const response = await axios.get(`${apiUrl}/api/place/${id}`);
         setMarkerData(response.data);
       } catch (error) {
         console.error('Error fetching marker data:', error);

@@ -5,6 +5,10 @@ import { Card, Image, Spin, Alert, Typography, Space, Button, Row, Col } from 'a
 
 const { Title } = Typography;
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
+
+
 function DistrictDetailPage() {
   const { regionKey, cityKey, districtKey } = useParams();  // URL에서 파라미터 추출
   const [places, setPlaces] = useState([]);
@@ -18,7 +22,7 @@ function DistrictDetailPage() {
   };
 
   useEffect(() => {
-    axios.get(`http://3.35.55.228:5000/api/regions/${regionKey}/${cityKey}/${districtKey}`)  // 해당 구역의 API 요청
+    axios.get(`${apiUrl}/api/regions/${regionKey}/${cityKey}/${districtKey}`)  // 해당 구역의 API 요청
       .then(response => {
         setPlaces(response.data);
         setLoading(false);
@@ -64,7 +68,7 @@ function DistrictDetailPage() {
                         <Image
                           key={imgIndex}
                           width={200}
-                          src={`http://3.35.55.228:5000${img.image_url}`}  // 서버 주소와 경로를 결합
+                          src={`${apiUrl}${img.image_url}`}  // 서버 주소와 경로를 결합
                           alt={`장소 이미지 ${imgIndex + 1}`}
                         />
                       ))

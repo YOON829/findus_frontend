@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function SeasonListPage() {
   const { workKey } = useParams();  // URL에서 workKey를 추출합니다.
   const [workDetails, setWorkDetails] = useState(null);  // 작품 세부 정보를 저장할 상태를 선언합니다.
@@ -15,7 +18,7 @@ function SeasonListPage() {
 
   useEffect(() => {
     setLoading(true);  // 데이터 요청을 시작할 때 로딩 상태를 true로 설정합니다.
-    axios.get(`http://3.35.55.228:5000/api/work/${workKey}`)  // 주어진 workKey를 사용하여 API에서 작품 정보를 가져옵니다.
+    axios.get(`${apiUrl}/api/work/${workKey}`)  // 주어진 workKey를 사용하여 API에서 작품 정보를 가져옵니다.
       .then(response => {
         setWorkDetails(response.data);  // 가져온 데이터를 상태로 저장합니다.
         setLoading(false);  // 데이터 요청이 완료되면 로딩 상태를 false로 설정합니다.

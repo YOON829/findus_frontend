@@ -4,6 +4,7 @@ import axios from 'axios';  // HTTP 요청을 위한 axios 라이브러리를 �
 
 
 
+const apiUrl = process.env.REACT_APP_API_URL;
 
 
 function WorkListPage() {
@@ -20,13 +21,13 @@ function WorkListPage() {
 
   useEffect(() => {
     // 컴포넌트가 마운트될 때 모든 작품 목록을 가져옵니다.
-    axios.get('http://3.35.55.228:5000/api/work/all')  // 서버의 API 엔드포인트로부터 작품 목록을 가져옵니다.
+    axios.get(`${apiUrl}/api/work/all`)  // 서버의 API 엔드포인트로부터 작품 목록을 가져옵니다.
       .then(response => {
         setWorks(response.data);  // 응답받은 데이터를 works 상태에 저장합니다.
         setLoading(false);  // 데이터 로딩이 완료되면 로딩 상태를 false로 설정합니다.
       })
       .catch(error => {
-        console.error('Error fetching work details:', error);  // 요청 중 에러가 발생하면 콘솔에 에러를 출력합니다.
+        console.log('Error fetching work details:', error);  // 요청 중 에러가 발생하면 콘솔에 에러를 출력합니다.
         if (error.response && error.response.status === 404) {
           navigate('/notfound');  // 404 에러가 발생하면 NotFoundPage로 리다이렉트합니다.
         } else {

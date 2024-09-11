@@ -109,6 +109,9 @@ import { Card, Typography, Spin, Alert, Image, List, Space, Divider, Button } fr
 
 const { Title, Paragraph, Text } = Typography;
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
+
 function SeasonDetailPage() {
   const { workKey, seasonKey } = useParams();
   const [seasonDetails, setSeasonDetails] = useState(null);
@@ -124,7 +127,7 @@ function SeasonDetailPage() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://3.35.55.228:5000/api/work/${workKey}/${seasonKey}`);
+        const response = await axios.get(`${apiUrl}/api/work/${workKey}/${seasonKey}`);
         setSeasonDetails(response.data);
         setLoading(false);
       } catch (error) {
@@ -157,7 +160,7 @@ function SeasonDetailPage() {
         <Paragraph>{details.description}</Paragraph>
         {details.poster && (
           <Image
-            src={details.poster}
+            src={`${apiUrl}${details.poster}`}  // apiUrl과 poster 경로를 결합
             alt={details.work_name}
             style={{ maxWidth: '300px' }}
           />
@@ -196,7 +199,7 @@ function SeasonDetailPage() {
                       <Image
                         key={index}
                         width={200}
-                        src={`http://3.35.55.228:5000${img.image_url}`}
+                        src={`${apiUrl}${img.image_url}`}
                         alt={`장소 이미지 ${index + 1}`}
                       />
                     ))}

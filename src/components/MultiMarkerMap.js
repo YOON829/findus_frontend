@@ -6,20 +6,24 @@ import InfoPanel from './InfoPanel';
 import Footer from './Footer';
 import '../css/SidePanel.css';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function MultiMarkerMap() { //컴포넌트는 대문자로 시작
   const { id } = useParams();
   const navigate = useNavigate();
 
   const [locations, setLocations] = useState([]); // 모든 위치 정보
   const [selectedLocation, setSelectedLocation] = useState(null); // 선택된 위치
-  const [center, setCenter] = useState({ lat: 35.1020, lng: 138.8593 }); // 지도 중심 좌표 (도쿄)
+  const [center, setCenter] = useState({ lat: 35.6270, lng: 139.7745 }); // 지도 중심 좌표 (도쿄)
   const [isPanelVisible, setIsPanelVisible] = useState(false); // 패널 표시 여부
 
   const mapRef = useRef(null);
 
+
+
   useEffect(() => {
     // 모든 장소 정보와 해당 장소에 연결된 이미지를 가져오는 API 호출
-    axios.get('http://3.35.55.228:5000/api/place')
+    axios.get(`${apiUrl}/api/place`)
       .then(response => {
         setLocations(response.data); // 모든 위치 정보 저장
 
@@ -78,7 +82,7 @@ function MultiMarkerMap() { //컴포넌트는 대문자로 시작
             height: '100vh',
           }}
           center={center}
-          zoom={17.5}
+          zoom={15}
           onLoad={onLoad}
           options={{
             gestureHandling: 'greedy'
