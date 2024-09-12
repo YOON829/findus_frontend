@@ -7,14 +7,14 @@ import WorkListPage from "./pages/WorkListPage";
 import SeasonListPage from "./pages/SeasonListPage";
 import SeasonDetailPage from "./pages/SeasonDetailPage"; // 새로 추가한 시즌 상세 페이지
 import Dashboard from "./pages/Dashboard";
-import LoginButton from "./components/LoginButton";
-import LogoutButton from "./components/LogoutButton";
+// import LoginButton from "./components/LoginButton";
+// import LogoutButton from "./components/LogoutButton";
 import RegionListPage from "./pages/RegionListPage";
 import CityListPage from "./pages/CityListPage";
 import DistrictListPage from "./pages/DistrictListPage";
 import DistrictDetailPage from "./pages/DistrictDetailPage";
 import NotFoundPage from "./pages/NotFoundPage";
-
+import MainPage from "./pages/MainPage";
 
 function App() {
   useEffect(() => {
@@ -42,16 +42,8 @@ function App() {
         <Route path="/multi-marker/" element={<MultiMarkerPage />} />
         <Route path="/multi-marker/:id" element={<MultiMarkerPage />} />{" "}
         <Route path="/search" element={<SearchTypePage />} />
-        <Route
-          path="/"
-          element={
-            <div>
-              <h1>Google Login Example</h1>
-              <LoginButton /> {/* 로그인 버튼 표시 */}
-              <LogoutButton /> {/* 로그아웃 버튼 표시 */}
-            </div>
-          }
-        />
+        <Route path="/" element={<MainPage />} />
+
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/work" element={<WorkListPage />} />
         <Route path="/work/:workKey" element={<SeasonListPage />} />
