@@ -2,6 +2,7 @@
   "name": "findus_front",
   "version": "1.0.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@react-google-maps/api": "^2.3.0",
     "antd": "^5.20.3",
