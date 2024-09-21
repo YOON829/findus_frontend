@@ -1,0 +1,137 @@
+/* 전체 컨테이너 스타일 */
+.search-type-container {
+  max-width: 480px; /* 최대 너비 설정 */
+  margin: 0 auto; /* 가운데 정렬 */
+  padding: 10px; /* 내부 여백 */
+  height: calc(100vh - 150px); /* 뷰포트 높이에서 푸터 높이를 뺀 값 */
+  display: flex; /* 플렉스 박스 레이아웃 사용 */
+  flex-direction: column; /* 세로 방향으로 아이템 정렬 */
+  overflow: hidden; /* 내용이 넘칠 경우 숨김 처리 */
+  background-color: #ffffff; /* 배경색을 밝은 크림색으로 변경 */
+}
+
+.ant-typography {
+  font-family: "Maplestory Bold", sans-serif !important;
+}
+
+/* 제목 컨테이너 스타일 */
+.title-container {
+  flex-shrink: 0; /* 컨테이너가 축소되지 않도록 설정 */
+  position: relative; /* 상대적 위치 설정 */
+  display: inline-block; /* 인라인 블록으로 표시 */
+  padding-bottom: 15px;
+  font-family: "Maplestory Bold", sans-serif !important;
+}
+
+/* 제목 스타일 */
+.search-type-title {
+  margin-bottom: 10px; /* 하단 여백 */
+  color: #014129; /* 제목 색상을 다크 그린으로 변경 */
+}
+
+/* 구분선 스타일 */
+.custom-divider {
+  position: absolute; /* 절대 위치 설정 */
+  bottom: 0; /* 하단에 배치 */
+  left: 0; /* 좌측에 배치 */
+  width: 100%; /* 전체 너비 */
+  border: none; /* 테두리 없음 */
+  height: 4px; /* 높이 1픽셀 */
+  background-color: #ffb74d; /* 배경색 설정 (골드) */
+}
+
+/* 검색 옵션 영역 스타일 */
+.search-type-options {
+  flex-grow: 1; /* 남은 공간을 모두 차지 */
+  overflow-y: auto; /* 세로 스크롤 허용 */
+  padding-bottom: 20px; /* 하단 여백 */
+  scrollbar-width: thin; /* Firefox를 위한 설정 */
+  scrollbar-color: transparent transparent; /* Firefox를 위한 설정 */
+}
+
+/* 카드 스타일 */
+.search-type-card {
+  width: 100%; /* 전체 너비 */
+  margin-top: 15px;
+  background-color: #ffffff; /* 배경색을 다크 그린으로 변경 */
+  color: #000000; /* 글자색을 밝은 크림색으로 변경 */
+  transition: transform 0.3s ease; /* 변형 효과에 트랜지션 적용 */
+  border-color: #ff4081;
+  border-width: 3px !important;
+}
+
+/* 카드 호버 효과 */
+.search-type-card:hover {
+  transform: scale(1); /* 호버 시 약간 확대 */
+}
+
+/* 아이콘 스타일 */
+.search-type-icon {
+  font-size: 60px; /* 아이콘 크기 */
+  margin-top: 40px; /* 상하 여백 */
+  color: #00bcd4; /* 아이콘 색상을 연한 청록색으로 변경 */
+}
+
+/* 카드 내용 스타일 */
+.search-type-card-content {
+  padding: 0 16px 16px 16px; /* 상 우 하 좌 순서로 패딩 설정 */
+}
+
+/* 카드 제목 스타일 */
+.search-type-card-title {
+  font-size: 25px; /* 글자 크기 */
+  font-weight: bold; /* 글자 굵기 */
+  color: #000000; /* 글자색을 밝은 크림색으로 변경 */
+  margin-bottom: 8px; /* 하단 여백 */
+}
+
+/* 카드 설명 스타일 */
+.search-type-card-description {
+  font-size: 18px; /* 글자 크기 */
+  color: #000000; /* 글자색을 연한 베이지로 변경 */
+}
+
+/* 선택 버튼 스타일 */
+.search-type-button {
+  margin-top: 10px; /* 상단 여백 */
+  width: 100%; /* 전체 너비 */
+  background-color: #ffb74d !important; /* 배경색을 테라코타로 변경 */
+  border-color: #ffb74d !important; /* 테두리 색상을 테라코타로 변경 */
+  color: #000000 !important; /* 글자색을 밝은 크림색으로 변경 */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* 배경색과 테두리 색상 변경에 트랜지션 적용 */
+}
+
+/* 선택 버튼 호버 효과 */
+.search-type-button:hover {
+  background-color: #febed6 !important; /* 호버 시 배경색을 보색으로 변경 */
+  border-color: #febed6 !important; /* 호버 시 테두리 색상을 보색으로 변경 */
+  color: #014129 !important; /* 호버 시 글자색을 다크 그린으로 변경 */
+}
+
+/* 검색 옵션 영역 스타일 */
+.search-type-options {
+  flex-grow: 1; /* 남은 공간을 모두 차지 */
+  overflow-y: auto; /* 세로 스크롤 허용 */
+  padding-bottom: 20px; /* 하단 여백 */
+  scrollbar-width: thin; /* Firefox를 위한 설정 */
+  scrollbar-color: transparent transparent; /* Firefox를 위한 설정 */
+}
+
+/* WebKit 기반 브라우저 (Chrome, Safari 등)를 위한 스크롤바 스타일 */
+.search-type-options::-webkit-scrollbar {
+  width: 6px; /* 스크롤바 너비 */
+}
+
+.search-type-options::-webkit-scrollbar-track {
+  background: transparent; /* 스크롤바 트랙 배경색 */
+}
+
+.search-type-options::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1); /* 스크롤바 색상 (약간 어둡게) */
+  border-radius: 3px; /* 스크롤바 모서리 둥글게 */
+}
+
+/* IE와 Edge를 위한 스크롤바 스타일 */
+.search-type-options {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}

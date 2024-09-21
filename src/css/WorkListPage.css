@@ -1,0 +1,110 @@
+/* 작품 목록 컨테이너 스타일 */
+.work-list-container {
+  max-width: 1200px; /* 최대 너비 설정 */
+  margin: 0 auto; /* 가운데 정렬 */
+  padding: 10px; /* 내부 여백 */
+  background-color: #ffffff; /* 배경색을 밝은 크림색으로 설정하여 따뜻한 느낌 부여 */
+}
+
+.title-section {
+  margin-bottom: 20px; /* 구분선과 Row 사이의 간격 조절 */
+}
+/* 페이지 제목 스타일 */
+.work-list-page-title {
+  text-align: left; /* 텍스트 중앙 정렬 */
+}
+.WLP-custom-divider {
+  margin-top: 10px; /* 제목과 구분선 사이의 간격 조절 */
+  border: none;
+  height: 4px;
+  background-color: #ffb74d; /* 구분선 색상 */
+  width: 100%;
+}
+
+/* 로딩 스피너 스타일 */
+.loading-spinner {
+  display: flex; /* 플렉스 박스 레이아웃 사용 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  height: 100vh; /* 뷰포트 높이만큼 설정 */
+  background-color: #f5eed6; /* 로딩 중 배경색을 밝은 크림색으로 설정 */
+}
+
+/* 에러 메시지 스타일 */
+.error-message {
+  color: #e2725b; /* 글자색을 테라코타로 변경하여 경고 느낌 강조 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  font-size: 18px; /* 글자 크기 */
+  margin-top: 20px; /* 상단 여백 */
+}
+
+/* 뒤로 가기 버튼 스타일 */
+.back-button {
+  margin-bottom: 20px; /* 하단 여백 */
+  background-color: #014129; /* 배경색을 다크 그린으로 설정 */
+  border-color: #014129; /* 테두리 색상을 다크 그린으로 설정 */
+  color: #f5eed6; /* 글자색을 밝은 크림색으로 설정하여 대비 효과 */
+}
+
+/* 뒤로 가기 버튼 호버 효과 */
+.back-button:hover {
+  background-color: #7fffd4; /* 호버 시 배경색을 연한 청록색으로 변경하여 생동감 부여 */
+  border-color: #7fffd4; /* 호버 시 테두리 색상을 연한 청록색으로 변경 */
+  color: #014129; /* 호버 시 글자색을 다크 그린으로 변경하여 가독성 유지 */
+}
+
+/* 작품 카드 스타일 */
+.work-card {
+  width: 100%; /* 전체 너비 사용 */
+  background-color: #ffffff; /* 배경색을 연한 베이지로 설정하여 부드러운 느낌 부여 */
+  border: 3px solid #ff4081; /* 테두리를 골드 색상으로 설정하여 고급스러움 강조 */
+  overflow: hidden; /* 내용이 넘치는 경우 숨김 처리 */
+}
+
+/* 작품 카드 이미지 스타일 */
+.work-card .ant-card-cover {
+  width: 101%; /* 이미지 컨테이너의 너비를 100%로 설정 */
+  height: 0; /* 높이를 0으로 설정하여 패딩으로 비율 조정 */
+  padding-top: 75%; /* 4:3 비율 유지 (75% = 3/4) */
+  position: relative; /* 자식 요소의 절대 위치 기준점 */
+}
+
+.work-card .ant-card-cover img {
+  position: absolute; /* 절대 위치 설정 */
+  top: 0;
+  left: 0;
+  width: 100%; /* 너비를 100%로 설정 */
+  height: 100%; /* 높이를 100%로 설정 */
+  object-fit: cover; /* 이미지 비율 유지하며 채우기 */
+}
+
+/* 작품 카드 제목 스타일 */
+.work-card .ant-card-meta-title {
+  font-size: 20px; /* 글자 크기 */
+  white-space: normal; /* 줄바꿈 허용 */
+  line-height: 1.2; /* 줄 간격 */
+  color: #455a64; /* 글자색을 다크 그린으로 설정하여 가독성 향상 */
+  margin-top: 1px; /* 상단 여백 추가 */
+}
+
+/* 작품 카드 설명 스타일 */
+.work-card .ant-card-meta-description {
+  font-size: 14px; /* 글자 크기 */
+  color: #e2725b; /* 글자색을 테라코타로 설정하여 생동감 부여 */
+}
+
+/* 모바일 화면 대응 스타일 */
+@media (max-width: 576px) {
+  .work-list-container {
+    padding: 10px; /* 내부 여백 축소 */
+  }
+
+  .work-card .ant-card-meta-title {
+    font-size: 20px; /* 글자 크기 축소 */
+  }
+}
+
+/* 태블릿 화면 대응 스타일 */
+@media (min-width: 576px) and (max-width: 768px) {
+  /* 태블릿 화면에서의 추가 스타일이 필요한 경우 여기에 작성 */
+}

@@ -1,0 +1,35 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* 새로 추가된 섹션별 배경색 */
+.banner-section {
+  background-color: #f0f8ff; /* Alice Blue */
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.works-section {
+  background-color: #fff0f5; /* Lavender Blush */
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.locations-section {
+  background-color: #f0fff0; /* Honeydew */
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.recent-updates-section {
+  background-color: #fff5e6; /* Light Orange */
+  padding: 20px;
+}

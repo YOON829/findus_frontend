@@ -1,0 +1,62 @@
+/* BookmarkButton.css */
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button:hover {
+  transform: scale(1.1);
+}
+
+.bookmark-icon {
+  font-size: 24px;
+
+  margin-right: 5px;
+}
+
+.bookmark-icon.default {
+  color: #f11c1c;
+}
+
+.bookmark-icon.bookmarked {
+  color: #ff4081;
+}
+
+/* Ant Design 버튼 스타일 오버라이드 */
+.ant-btn.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 4px 15px;
+}
+
+.ant-btn.icon-button:hover {
+  border-color: #ff4081;
+  color: #ff4081;
+}
+
+.ant-btn.icon-button .anticon {
+  margin-right: 8px;
+}
+
+/* {/* <Button
+icon={
+  isBookmarked ? (
+    <StarFilled className="bookmark-icon bookmarked" />
+  ) : (
+    <StarOutlined className="bookmark-icon default" />
+  )
+}
+onClick={handleBookmark}
+className="icon-button"
+>
+{isBookmarked ? "북마크 됨" : "북마크"}
+</Button> */

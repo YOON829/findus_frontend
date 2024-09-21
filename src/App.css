@@ -1,11 +1,11 @@
+/* src/App.css */
+
 .App {
   text-align: center;
-   max-width: 640px; /*뷰포트에 맞춘것*/
+  max-width: 100%; /* 뷰포트에 맞추어 설정 */
   margin: 0 auto; /* 중앙 정렬 */
 }
-}
-
-.App-logo {
+kl .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -18,7 +18,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 640px; /*뷰포트에 맞추는것*/
+  min-height: 100vh; /* 화면 전체 높이를 차지하도록 */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,4 +38,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* App.css */
+
+@font-face {
+  font-family: "Maplestory Bold";
+  src: local("Maplestory Bold"),
+    url("./fonts/Maplestory Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Maplestory Light";
+  src: local("Maplestory Light"),
+    url("./fonts/Maplestory Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 전체에 글꼴 적용 */
+body {
+  font-family: "Maplestory Light", sans-serif;
+}
+
+/* 특정 요소에 글꼴 적용 */
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+div {
+  font-family: "Maplestory Bold", sans-serif;
 }

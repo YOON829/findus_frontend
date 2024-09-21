@@ -1,0 +1,47 @@
+/* src/css/Layout.css */
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 전체 화면 높이를 100vh로 고정 */
+  min-width: 320px; /* 최소 너비 설정 (모바일 최소 기종 대응) */
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px; /* 최대 너비 설정 */
+  margin: 0 auto;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding-top: 57px; /* 헤더 높이 */
+  padding-bottom: 57px; /* 푸터 높이 */
+  box-sizing: border-box;
+  background-color: #ffffff; /* 임시색상 */
+}
+
+/* 모바일 기기에 대한 미디어 쿼리 */
+@media screen and (max-width: 480px) {
+  .layout-container {
+    max-width: 100%; /* 여백 없이 전체 너비로 설정 */
+    margin: 0; /* 모든 마진 제거 */
+    padding: 0; /* 패딩 제거 */
+  }
+}

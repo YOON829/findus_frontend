@@ -1,0 +1,134 @@
+/* .region-list-page {
+  padding: 20px;
+}
+
+.region-card {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.region-card .ant-card-grid {
+  padding: 20px;
+}
+
+.region-card .ant-card-grid a {
+  display: block;
+  font-size: 16px;
+  color: #1890ff;
+}
+
+.region-card .ant-card-grid a:hover {
+  color: #40a9ff;
+}
+
+@media (max-width: 768px) {
+  .region-card .ant-card-grid {
+    width: 50% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .region-card .ant-card-grid {
+    width: 100% !important;
+  }
+} */
+
+/* src/css/RegionListPage.css */
+/* src/css/RegionListPage.css */
+
+/* 지역 목록 페이지의 전체 컨테이너 스타일 */
+.findus-region-list-page-container {
+  background-color: #ffffff; /* 배경색 설정 */
+  padding: 10px; /* 내부 여백 설정 */
+  min-height: 100vh; /* 최소 높이를 뷰포트 높이로 설정 */
+  display: flex; /* 플렉스 컨테이너로 설정 */
+  flex-direction: column; /* 세로 방향으로 아이템 배치 */
+}
+
+/* 지역 목록 제목 영역 스타일 */
+.findus-region-list-title {
+  margin-bottom: 15px; /* 하단 여백 설정 */
+}
+
+/* 검색 유형 제목 스타일 */
+.findus-search-type-title {
+  color: #000000 !important; /* 글자색 검정으로 설정 */
+  font-weight: bold; /* 글자 굵기 설정 */
+  margin: 0; /* 마진 제거 */
+  font-size: 1rem; /* 글자 크기 설정 */
+}
+
+/* 구분선 스타일 */
+/* DistrictListPage가서 처리 */
+
+/* 지역 카드 컨테이너 스타일 */
+.findus-region-card-container {
+  display: flex; /* 플렉스 컨테이너로 설정 */
+  flex-direction: column; /* 세로 방향으로 아이템 배치 */
+  gap: 10px; /* 아이템 간 간격 설정 */
+  padding-bottom: 10px; /* 하단 내부 여백 설정 */
+  flex-grow: 1; /* 남은 공간을 모두 차지하도록 설정 */
+}
+
+/* 지역 링크 스타일 */
+.findus-region-link {
+  text-decoration: none; /* 텍스트 장식 제거 */
+  color: #014129; /* 글자색 설정 */
+  width: 100%; /* 너비를 100%로 설정 */
+}
+
+/* 지역 카드 스타일 */
+.findus-region-card {
+  background-color: #ffffff !important; /* 배경색 설정 */
+  border: 4px solid #ff4081 !important; /* 테두리 설정 */
+  border-radius: 8px !important; /* 모서리 둥글기 설정 */
+  transition: all 0.3s ease !important; /* 전환 효과 설정 */
+  height: 90px; /* 높이 설정 */
+  display: flex; /* 플렉스 컨테이너로 설정 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  padding: 9px; /* 내부 여백 설정 */
+}
+
+/* 지역 카드 호버 효과 */
+.findus-region-card:hover {
+  background-color: #febed6 !important; /* 호버 시 배경색 변경 */
+  transform: translateY(-2px); /* 호버 시 위로 약간 이동 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important; /* 호버 시 그림자 효과 */
+}
+
+/* 지역 이름 스타일 */
+.findus-region-name {
+  margin: 0; /* 마진 제거 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  font-weight: bold; /* 글자 굵기 설정 */
+  color: #000000; /* 글자색 설정 */
+  font-size: 1.8rem; /* 글자 크기 설정 */
+  line-height: 1.2; /* 줄 높이 설정 */
+}
+
+/* 로딩 텍스트 스타일 */
+.findus-loading-text {
+  width: 100%; /* 너비를 100%로 설정 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  color: #014129; /* 글자색 설정 */
+  font-size: 1rem; /* 글자 크기 설정 */
+}
+
+/* 모바일 화면을 위한 미디어 쿼리 */
+@media screen and (max-width: 768px) {
+  /* 모바일에서의 검색 유형 제목 스타일 */
+  .findus-search-type-title {
+    font-size: 1.5rem; /* 글자 크기 조정 */
+  }
+
+  /* 모바일에서의 지역 카드 스타일 */
+  .findus-region-card {
+    height: 90px; /* 높이 유지 */
+  }
+
+  /* 모바일에서의 지역 이름 스타일 */
+  .findus-region-name {
+    font-size: 2rem; /* 글자 크기 조정 */
+  }
+}

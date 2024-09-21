@@ -60,13 +60,18 @@
 
 // frontend/src/components/LogoutButton.js
 
+// src/components/LogoutButton.js
 // 'React' 라이브러리를 사용하기 위해 불러와. 이 라이브러리로 UI 컴포넌트를 만들 수 있어.
 import React from "react";
 // 'useNavigate'는 페이지 이동을 도와주는 함수야. 나중에 다른 페이지로 이동할 때 사용할 수 있어.
 import { useNavigate } from "react-router-dom";
+// Ant Design의 Button 컴포넌트와 LogoutOutlined 아이콘을 불러와.
+import { Button } from "antd";
+import { LogoutOutlined } from "@ant-design/icons";
 
-// 'LogoutButton'이라는 컴포넌트를 만드는 거야. 버튼을 누르면 로그아웃이 실행돼.
 const LogoutButton = () => {
+  const navigate = useNavigate();
+
   // 'handleLogout'은 로그아웃을 처리하는 함수야. 버튼을 누르면 이 함수가 실행돼.
   const handleLogout = async () => {
     // 이 블록에서 서버에 로그아웃 요청을 보내는 걸 시도해.
@@ -95,7 +100,9 @@ const LogoutButton = () => {
       // 서버에서 보낸 데이터를 JSON 형식으로 변환해.
       const data = await response.json();
       console.log("서버 응답:", data);
-      // 로그아웃 과정에서 오류가 발생하면 이 블록에서 처리해.
+
+      // 로그아웃 성공 후 원하는 동작을 수행해. 예를 들어, 홈 페이지로 이동할 수 있어.
+      navigate("/");
     } catch (error) {
       console.error("Logout failed", error);
       // 네트워크 오류가 발생했을 때, 즉 서버에 아예 연결되지 않았을 때 처리하는 부분이야.
@@ -105,8 +112,14 @@ const LogoutButton = () => {
     }
   };
 
-  // '로그아웃' 버튼을 화면에 보여줘. 이 버튼을 누르면 'handleLogout' 함수가 실행돼.
-  return <button onClick={handleLogout}>로그아웃하기</button>;
+  // Ant Design의 Button과 LogoutOutlined 아이콘을 사용하여 로그아웃 버튼을 만들어줘.
+  return (
+    <Button
+      type="link" // 버튼의 스타일 타입을 지정해. 'primary'는 주요 액션을 나타내는 스타일이야.
+      icon={<LogoutOutlined />} // 버튼에 LogoutOutlined 아이콘을 추가해.
+      onClick={handleLogout} // 버튼을 클릭하면 handleLogout 함수가 실행돼.
+    ></Button>
+  );
 };
 
 export default LogoutButton;

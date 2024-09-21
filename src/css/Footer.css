@@ -1,24 +1,42 @@
-
-.footer {
+/* src/css/Footer.css */
+.footer-container {
   position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-  padding: 10px 0;
-  z-index: 1100; /* Footer가 가장 위에 표시되도록 z-index 조정 */
+  max-width: 480px;
+  background-color: #ffffff;
+  z-index: 1000;
+  margin: 0 auto;
+  height: 57px;
 }
 
-.footer button {
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 16px;
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 57px;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+/* 아이콘 색상 빨간색으로 변경 */
+.footer-icon {
+  font-size: 24px;
+  color: #ff4081; /* 아이콘 색상 빨간색 */
   cursor: pointer;
 }
 
-.footer button:hover {
-  color: #007bff;
+.footer-icon.active {
+  color: #ff4081; /* 활성화된 아이콘은 파란색으로 */
+}
+/* 작은 화면에서 푸터 크기 조정 */
+@media screen and (max-width: 480px) {
+  .footer-container {
+    max-width: 100%;
+    min-width: 320px;
+  }
 }

@@ -1,7 +1,20 @@
 .single-marker-container {
-  width: 100%;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 10px 10px 10px;
+  background-color: #ffffff; /* 밝은 크림색으로 변경 */
+}
+
+.marker-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #ffffff; /* 다크 그린 배경 추가 */
+  padding: 10px 10px 10px 20px;
+}
+
+.marker-header button {
+  margin-right: 0px;
 }
 
 .image-slider {
@@ -31,17 +44,191 @@
 }
 
 .carousel .carousel-status {
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .carousel .control-arrow {
-  background: rgba(0,0,0,0.2);
+  background: rgba(1, 65, 41, 0.5); /* 다크 그린으로 변경 */
 }
 
 .carousel .control-next.control-arrow:before {
-  border-left: 8px solid #fff;
+  border-left: 8px solid #f5eed6; /* 밝은 크림색으로 변경 */
 }
 
 .carousel .control-prev.control-arrow:before {
-  border-right: 8px solid #fff;
+  border-right: 8px solid #f5eed6; /* 밝은 크림색으로 변경 */
+}
+
+.info-panel-content {
+  margin-top: 20px;
+}
+
+.opening-hours-collapse .ant-collapse-header {
+  font-weight: bold;
+  color: #014129; /* 다크 그린으로 변경 */
+}
+
+.loading-spinner,
+.error-alert {
+  margin: 20px;
+  text-align: center;
+}
+
+.opening-hours-collapse {
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.SMP-Placename {
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 10px 10px 10px 10px;
+  font-size: 30px;
+}
+
+.SMP-custom-divider {
+  margin-top: 20px;
+  margin-bottom: 0;
+  border: none;
+  height: 3px;
+  background-color: #ffb74d; /* 골드 색상 유지 */
+  width: 100%;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.icon-button:hover {
+  background-color: #ffffff; /* 연한 청록색으로 변경 */
+}
+
+.material-icons,
+.material-icons-outlined {
+  font-size: 35px;
+  vertical-align: middle;
+}
+
+.bookmark-icon {
+  text-shadow: -1px -1px 0 #014129, 1px -1px 0 #014129, -1px 1px 0 #014129,
+    1px 1px 0 #014129; /* 다크 그린으로 변경 */
+}
+
+.material-icons.bookmark-icon {
+  color: #e2725b; /* 골드 색상으로 변경 */
+}
+
+.material-icons-outlined.bookmark-icon {
+  color: #f5eed6; /* 밝은 크림색으로 변경 */
+}
+
+.share-icon {
+  color: #00bcd4; /* 밝은 크림색으로 변경 */
+}
+
+.marker-header .icon-button {
+  margin-left: 0px;
+  height: 50px;
+}
+
+/* 작품 목록 컨테이너 스타일 */
+.work-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5eed6;
+}
+
+.title-section {
+  margin-bottom: 20px;
+}
+
+.work-list-page-title {
+  text-align: left;
+  color: #014129; /* 다크 그린으로 변경 */
+}
+
+.WLP-custom-divider {
+  margin-top: 10px;
+  border: none;
+  height: 1px;
+  background-color: #d4af37;
+  width: 100%;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5eed6;
+}
+
+.error-message {
+  color: #e2725b;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.back-button {
+  margin-bottom: 20px;
+  background-color: #014129;
+  border-color: #014129;
+  color: #f5eed6;
+}
+
+.back-button:hover {
+  background-color: #7fffd4;
+  border-color: #7fffd4;
+  color: #014129;
+}
+
+.work-card {
+  width: 100%;
+  background-color: #e0d0c0;
+  border: 1px solid #d4af37;
+  overflow: hidden;
+}
+
+.work-card .ant-card-cover {
+  width: 101%;
+  height: 0;
+  padding-top: 75%;
+  position: relative;
+}
+
+.work-card .ant-card-cover img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-card .ant-card-meta-title {
+  font-size: 16px;
+  white-space: normal;
+  line-height: 1.2;
+  color: #014129;
+  margin-top: 1px;
+}
+
+.work-card .ant-card-meta-description {
+  font-size: 14px;
+  color: #e2725b;
+}
+
+@media (max-width: 576px) {
+  .work-list-container {
+    padding: 10px;
+  }
+
+  .work-card .ant-card-meta-title {
+    font-size: 14px;
+  }
 }

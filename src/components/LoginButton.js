@@ -38,35 +38,24 @@
 // 따라서 리다이렉트 URL과는 달라야함.
 // [흐름도]의 1번에 해당함.
 
+// src/components/LoginButton.js
 import React from "react";
+import { Button } from "antd"; // Ant Design의 Button 컴포넌트 import
+import { LoginOutlined } from "@ant-design/icons"; // Ant Design의 LoginOutlined 아이콘 import
 
-// 1-1. 사용자가 로그인하기 버튼 클릭 시 LoginButton 함수 실행.
 const LoginButton = () => {
   const handleLogin = () => {
-    //1-2. googleURL 설정. *리다이렉션 URL과 다름 주의!!
-    // 로그인을 하기위해 선언하는 URL이며, 학교 방문 전 경비실에 들리는것임!
-    const loginUrl = "http://localhost:5000/api/auth/google";
-
-    console.log("Initiating Google login...");
-    // 1-3. 설정된 URL로 새 창이 열림.
+    const loginUrl = "http://findus-jp.link/api/auth/google";
     window.open(loginUrl, "_self");
   };
 
   return (
-    // HTML 버튼요소 생성
-    <button
-      // 버튼을 클릭하면 handleLogin 함수가 실행 됨
+    <Button
+      icon={<LoginOutlined />} // 로그인 아이콘 사용
+      type="link"
+      className="header-icon"
       onClick={handleLogin}
-      // 시각적정보를 못보는 사용자들을 위한 접근성개선목적의 속성.
-      // 보조장치가 있을 경우 '구글계정으로로그인'을 읽어줌
-      // 현재 상황상 필요없는 속성이지만 그냥 남겨두겠음.
-      aria-label="Google 계정으로 로그인"
-      // CSS 스타일링을 위한 className 부여. 버튼을 추후 꾸밀수 있음
-      className="google-login-button"
-    >
-      {/* 버튼에 표시 될 텍스트 */}
-      구글계정으로 로그인하세요
-    </button>
+    />
   );
 };
 
@@ -82,3 +71,7 @@ export default LoginButton;
 // 이는 구글이 인증 과정을 완료한 후 사용자를 다시 여러분의 애플리케이션으로 돌려보내는 URL입니다.
 // 보통 /api/auth/callback과 같은 형태를 가집니다.
 // 이 URL에서 백엔드는 구글로부터 받은 정보를 처리하고 로그인 프로세스를 완료합니다.
+
+{
+  /* <BellOutlined /> */
+}
