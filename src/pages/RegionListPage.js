@@ -17,7 +17,7 @@ function RegionListPage() {
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}/api/regions`)
+      .get(`https://findus-jp.link/api/regions`)
       .then((response) => setRegions(response.data))
       .catch((error) => console.error("Error fetching regions:", error));
   }, []);

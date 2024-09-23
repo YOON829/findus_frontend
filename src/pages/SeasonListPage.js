@@ -23,7 +23,7 @@ function SeasonListPage() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${apiUrl}/api/work/${workKey}`)
+      .get(`https://findus-jp.link/api/work/${workKey}`)
       .then((response) => {
         setWorkDetails(response.data);
         setLoading(false);
@@ -66,12 +66,12 @@ function SeasonListPage() {
                     alt={`Season ${season.display_name}`}
                     src={
                       season.poster
-                        ? `${apiUrl}${season.poster}`
-                        : `${apiUrl}/uploads/poster/default_poster.webp`
+                        ? `https://findus-jp.link${season.poster}`
+                        : `https://findus-jp.link/uploads/poster/default_poster.webp`
                     }
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = `${apiUrl}/uploads/poster/default_poster.webp`;
+                      e.target.src = `https://findus-jp.link/uploads/poster/default_poster.webp`;
                     }}
                   />
                 }

@@ -22,7 +22,7 @@ function WorkListPage() {
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}/api/work/all`)
+      .get(`https://findus-jp.link/api/work/all`)
       .then((response) => {
         setWorks(response.data);
         setLoading(false);
@@ -67,7 +67,7 @@ function WorkListPage() {
                     alt={work.work_name}
                     src={
                       work.poster
-                        ? `${apiUrl}${work.poster}`
+                        ? `https://findus-jp.link${work.poster}`
                         : "../uploads/poster/default_poster.webp"
                     }
                     onError={(e) => {

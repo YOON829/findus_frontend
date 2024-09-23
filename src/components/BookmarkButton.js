@@ -12,7 +12,7 @@ const BookmarkButton = ({ placeId }) => {
     const checkBookmarkStatus = async () => {
       try {
         const response = await axios.get(
-          `${apiUrl}/api/bookmark/check/${placeId}`,
+          `https://findus-jp.link/api/bookmark/check/${placeId}`,
           {
             withCredentials: true,
           }
@@ -29,13 +29,13 @@ const BookmarkButton = ({ placeId }) => {
   const handleBookmark = async () => {
     try {
       if (isBookmarked) {
-        await axios.delete(`${apiUrl}/api/bookmark/${placeId}`, {
+        await axios.delete(`https://findus-jp.link/api/bookmark/${placeId}`, {
           withCredentials: true,
         });
         console.log("Bookmark deleted");
       } else {
         await axios.post(
-          `${apiUrl}/api/bookmark`,
+          `https://findus-jp.link/api/bookmark`,
           { place_id: placeId },
           { withCredentials: true }
         );

@@ -41,7 +41,7 @@ const InfoPanel = ({ selectedMarker }) => {
 
   useEffect(() => {
     if (selectedMarker) {
-      fetch(`${apiUrl}/api/place/${selectedMarker.place_id}`)
+      fetch(`https://findus-jp.link/api/place/${selectedMarker.place_id}`)
         .then((response) => response.json())
         .then((data) => {
           if (data.Work) {
@@ -117,7 +117,7 @@ const InfoPanel = ({ selectedMarker }) => {
             {realPlaceImages.map((image, index) => (
               <div key={index} className="image-item">
                 <Image
-                  src={`${apiUrl}${image.image_url}`}
+                  src={`https://findus-jp.link${image.image_url}`}
                   alt={`Image ${index + 1}`}
                   onError={handleImageError}
                   preview={{

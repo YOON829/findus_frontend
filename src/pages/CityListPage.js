@@ -22,7 +22,7 @@ function CityListPage() {
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}/api/regions/${regionKey}`)
+      .get(`https://findus-jp.link/api/regions/${regionKey}`)
       .then((response) => {
         setData(response.data);
         setLoading(false);

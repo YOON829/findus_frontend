@@ -23,7 +23,7 @@ function DistrictListPage() {
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}/api/regions/${regionKey}/${cityKey}`)
+      .get(`https://findus-jp.link/api/regions/${regionKey}/${cityKey}`)
       .then((response) => {
         setPlaces(response.data);
         setLoading(false);

@@ -29,7 +29,7 @@ const MyPage = () => {
 
   const fetchBookmarks = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/api/bookmark`, {
+      const response = await axios.get(`https://findus-jp.link/api/bookmark`, {
         withCredentials: true,
       });
       setBookmarks(response.data);
@@ -40,7 +40,7 @@ const MyPage = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/api/reviews`, {
+      const response = await axios.get(`https://findus-jp.link/api/reviews`, {
         withCredentials: true,
       });
       setReviews(response.data);
@@ -61,7 +61,7 @@ const MyPage = () => {
           continue;
         }
 
-        await axios.delete(`${apiUrl}/api/bookmark/${placeId}`, {
+        await axios.delete(`https://findus-jp.link/api/bookmark/${placeId}`, {
           withCredentials: true,
         });
       }
@@ -88,10 +88,10 @@ const MyPage = () => {
     const imageTypes = ['realPlace', 'aniPlace', 'userUpload'];
     for (const type of imageTypes) {
       const image = images.find(img => img.image_url.includes(type));
-      if (image) return `${apiUrl}${image.image_url}`;
+      if (image) return `https://findus-jp.link${image.image_url}`;
     }
 
-    return `${apiUrl}${images[0].image_url}`;
+    return `https://findus-jp.link${images[0].image_url}`;
   };
 
   const handleImageError = (e) => {

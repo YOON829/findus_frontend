@@ -47,7 +47,7 @@ function SingleMarkerMap({ markerId }) {
   const fetchReviews = async () => {
     try {
       const response = await axios.get(
-        `${apiUrl}/api/reviews/place/${markerId}`
+        `https://findus-jp.link/api/reviews/place/${markerId}`
       );
       setReviews(response.data);
     } catch (error) {
@@ -59,7 +59,7 @@ function SingleMarkerMap({ markerId }) {
     const fetchMarkerData = async () => {
       try {
         const markerResponse = await axios.get(
-          `${apiUrl}/api/place/${markerId}`
+          `https://findus-jp.link/api/place/${markerId}`
         );
         setMarkerData(markerResponse.data);
 
@@ -87,7 +87,7 @@ function SingleMarkerMap({ markerId }) {
 
     const checkLoginStatus = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/api/auth/session-check`, {
+        const response = await axios.get(`https://findus-jp.link/api/auth/session-check`, {
           withCredentials: true,
         });
         console.log("Login check response:", response.data);
@@ -169,7 +169,7 @@ function SingleMarkerMap({ markerId }) {
               sortedImages.map((image, index) => (
                 <img
                   key={index}
-                  src={`${apiUrl}${image.image_url}`}
+                  src={`https://findus-jp.link${image.image_url}`}
                   alt={`Thumbnail ${index + 1}`}
                   onError={handleImageError}
                 />
@@ -179,7 +179,7 @@ function SingleMarkerMap({ markerId }) {
             {sortedImages.map((image, index) => (
               <div key={index}>
                 <Image
-                  src={`${apiUrl}${image.image_url}`}
+                  src={`https://findus-jp.link${image.image_url}`}
                   alt={`Location ${index + 1}`}
                   onError={handleImageError}
                   preview={{

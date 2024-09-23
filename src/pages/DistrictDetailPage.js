@@ -24,7 +24,7 @@ function DistrictDetailPage() {
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}/api/regions/${regionKey}/${cityKey}/${districtKey}`)
+      .get(`https://findus-jp.link/api/regions/${regionKey}/${cityKey}/${districtKey}`)
       .then((response) => {
         setPlaces(response.data);
         setLoading(false);
@@ -77,7 +77,7 @@ function DistrictDetailPage() {
               img.image_url.includes("realPlace")
             );
             if (realPlaceImage) {
-              imageUrl = `${apiUrl}${realPlaceImage.image_url}`;
+              imageUrl = `https://findus-jp.link${realPlaceImage.image_url}`;
             }
           }
 

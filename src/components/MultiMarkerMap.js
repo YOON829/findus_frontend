@@ -25,7 +25,7 @@ function MultiMarkerMap() {
   useEffect(() => {
     // 모든 장소 정보와 해당 장소에 연결된 이미지를 가져오는 API 호출
     axios
-      .get(`${apiUrl}/api/place`)
+      .get(`https://findus-jp.link/api/place`)
       .then((response) => {
         setLocations(response.data); // 모든 위치 정보 저장
         // URL의 id와 일치하는 장소 찾기

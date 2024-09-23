@@ -18,7 +18,7 @@ const ReviewForm = ({ placeId, user, onReviewSubmitted }) => {
 
     setSubmitting(true);
     try {
-      const response = await axios.post(`${apiUrl}/api/reviews`, {
+      const response = await axios.post(`https://findus-jp.link/api/reviews`, {
         place_id: placeId,
         rating: Number(values.rating), // 확실하게 숫자로 변환
         comment: values.comment,

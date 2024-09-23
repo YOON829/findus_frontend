@@ -32,7 +32,7 @@ function SeasonDetailPage() {
       setLoading(true);
       try {
         const response = await axios.get(
-          `${apiUrl}/api/work/${workKey}/${seasonKey}`
+          `https://findus-jp.link/api/work/${workKey}/${seasonKey}`
         );
         setSeasonDetails(response.data.seasonDetails);
         setPlaces(response.data.places);
@@ -100,7 +100,7 @@ function SeasonDetailPage() {
       <Card className="season-info-card">
         {seasonDetails.poster && (
           <Image
-            src={`${apiUrl}${seasonDetails.poster}`}
+            src={`https://findus-jp.link${seasonDetails.poster}`}
             alt={seasonDetails.work_name}
             className="season-poster"
           />
@@ -149,7 +149,7 @@ function SeasonDetailPage() {
                 img.image_url.includes("realPlace")
               );
               if (realPlaceImage) {
-                imageUrl = `${apiUrl}${realPlaceImage.image_url}`;
+                imageUrl = `https://findus-jp.link${realPlaceImage.image_url}`;
               }
             }
 
