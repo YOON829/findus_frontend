@@ -50,11 +50,11 @@
 }
 
 .info-panel-header {
-  display: flex; /* 플렉스 박스로 설정 */
-  justify-content: space-between; /* 양 끝으로 아이템 배치 */
-  align-items: center; /* 세로축 중앙 정렬 */
-  height: 50px; /* 헤더 높이 50px */
-  top: 10px; /* 상단에서 10px 아래에 위치 */
+  display: flex; /* 플렉스 레이아웃 적용 */
+  justify-content: space-between; /* 양 끝으로 요소 배치 */
+  align-items: center; /* 세로 중앙 정렬 */
+  height: 50px;
+  top: 10px;
 }
 
 /* 판넬의 메인 글자 */
@@ -160,9 +160,16 @@
   font-size: 125%;
 }
 
+.address-container {
+  display: flex;
+  justify-content: space-between; /* 요소들을 양 끝으로 밀어냅니다 */
+  align-items: center; /* 수직 중앙 정렬 */
+}
+
 .info-description {
-  color: #455a64; /* 테라코타로 변경 */
+  color: #455a64; /* 테라코타 색상을 원하시면 이 부분을 수정하세요 */
   font-size: 110%;
+  margin-right: auto; /* 오른쪽 요소들을 밀어내기 위해 */
 }
 
 .panel-container {
@@ -182,4 +189,16 @@
 
 .ant-list-items {
   background-color: #ffffff; /* 밝은 크림색으로 변경 */
+}
+
+.image-carousel {
+  margin-top: 10px;
+}
+
+.Linkbutton {
+  border: #ffffff;
+}
+
+.image-gallery {
+  margin-top: 9px;
 }

@@ -1,0 +1,45 @@
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+.modal-title {
+  margin-top: 0;
+  color: #333;
+}
+
+.modal-description {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.login-button-Modal {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Maplestory Light", sans-serif;
+}
+
+.login-button:hover {
+  background-color: #c0392b;
+}

@@ -1,0 +1,18 @@
+/* ReviewForm.css에 추가 */
+.ant-form-item-control-input-content {
+  font-family: 'Maplestory Bold', sans-serif !important; /* 폰트 적용 */
+}
+
+.ant-input,
+.ant-rate {
+  font-family: 'Maplestory Bold', sans-serif !important; /* 폰트 적용 */
+}
+
+.ant-input-textarea {
+  font-family: 'Maplestory Bold', sans-serif !important; /* 폰트 적용 */
+}
+
+
+.ant-form-item-required{
+  font-family: 'Maplestory Bold', sans-serif !important; /* 폰트 적용 */
+}

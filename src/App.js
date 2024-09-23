@@ -16,6 +16,8 @@ import NotFoundPage from "./pages/NotFoundPage";
 import MainPage from "./pages/MainPage";
 import Layout from "./components/Layout";
 import MyPage from "./pages/MyPage";
+import ScrollToTop from "./components/ScrollToTop";
+import EventPage from "./pages/EventPage";
 import { AuthProvider } from "./context/AuthContext";
 
 import "./App.css";
@@ -24,6 +26,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <Layout>
           <Routes>
             <Route path="/single-marker/:id" element={<SingleMarkerPage />} />
@@ -50,6 +53,8 @@ function App() {
             />
             <Route path="*" element={<NotFoundPage />} />
             <Route path="/mypage" element={<MyPage />} />
+            <Route path="/event" element={<EventPage />} />
+
           </Routes>
         </Layout>
       </Router>

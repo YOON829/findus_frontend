@@ -3,6 +3,9 @@ import React from "react";
 import { Layout, Button } from "antd";
 import { BellOutlined, LoginOutlined, LogoutOutlined } from "@ant-design/icons";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
+
+
 import "../css/Header.css";
 
 const { Header } = Layout;
@@ -14,7 +17,9 @@ const CustomHeader = () => {
     <div className="header-container">
       <Header className="header">
         <div className="logo-container">
-          <h1>FIND US</h1>
+          <h1>
+                  <Link to="/">FIND US</Link>
+          </h1>
         </div>
         <div className="button-group">
           {isLoggedIn ? (

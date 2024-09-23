@@ -1,5 +1,3 @@
-// ScrollToTopButton.js
-
 import React, { useState, useEffect } from "react";
 import "../css/ScrollToTopButton.css"; // 별도의 CSS 파일 생성
 
