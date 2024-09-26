@@ -26,7 +26,7 @@ function MainPage() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:5000/api/PLACE/");
+        const response = await axios.get("https://findus-jp.link/api/PLACE/");
         const placesData = response.data;
 
         // 도쿄 지역의 장소만 필터링
@@ -47,7 +47,7 @@ function MainPage() {
           return await Promise.all(
             places.map(async (place) => {
               const detailResponse = await axios.get(
-                `http://localhost:5000/api/place/${place.place_id}`
+                `https://findus-jp.link/api/place/${place.place_id}`
               );
               return {
                 ...place,
@@ -109,20 +109,10 @@ function MainPage() {
                 place.images.length > 0 ? (
                   <img
                     alt={place.place_name}
-                    src={`http://localhost:5000${place.images[0]?.image_url}`}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = "/path/to/fallback/image.jpg";
-                    }}
+                    src={`https://findus-jp.link/${place.images[0]?.image_url}`}
                     className="place-imageMain"
                   />
-                ) : (
-                  <img
-                    src="/path/to/fallback/image.jpg"
-                    alt="이미지를 사용할 수 없음"
-                    className="place-imageMain"
-                  />
-                )
+                ) : null // 이미지가 없으면 아무것도 렌더링하지 않음
               }
               className="place-cardMain"
               onClick={() => navigate(`/single-marker/${place.place_id}`)}
@@ -135,6 +125,7 @@ function MainPage() {
             </Card>
           </div>
         ))}
+
       </Carousel>
     </section>
   );

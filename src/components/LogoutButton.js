@@ -10,7 +10,7 @@ const LogoutButton = () => {
   const handleLogout = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/googleLogout",
+        "https://findus-jp.link/api/auth/googleLogout",
         {
           method: "POST",
           headers: {

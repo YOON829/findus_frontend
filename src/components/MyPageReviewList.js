@@ -58,14 +58,14 @@ const MyReviewList = ({ reviews, setReviews }) => {
 
     // 'realPlace' 이미지를 우선적으로 찾습니다.
     const realPlaceImage = images.find(img => img.image_url.includes('realPlace'));
-    if (realPlaceImage) return `https://findus-jp.link${realPlaceImage.image_url}`;
+    if (realPlaceImage) return `https://findus-jp.link/${realPlaceImage.image_url}`;
 
     // 'realPlace' 이미지가 없으면 'aniPlace' 이미지를 찾습니다.
     const aniPlaceImage = images.find(img => img.image_url.includes('aniPlace'));
-    if (aniPlaceImage) return `https://findus-jp.link${aniPlaceImage.image_url}`;
+    if (aniPlaceImage) return `https://findus-jp.link/${aniPlaceImage.image_url}`;
 
     // 둘 다 없으면 첫 번째 이미지를 사용합니다.
-    return `https://findus-jp.link${images[0].image_url}`;
+    return `https://findus-jp.link/${images[0].image_url}`;
   };
 
   return (

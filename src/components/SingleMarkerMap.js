@@ -32,28 +32,14 @@ const mapContainerStyle = {
   height: "40vh",
 };
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 function SingleMarkerMap({ markerId }) {
   const [markerData, setMarkerData] = useState(null);
   const [sortedImages, setSortedImages] = useState([]);
   const [work, setWork] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
   const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
-
-  const fetchReviews = async () => {
-    try {
-      const response = await axios.get(
-        `https://findus-jp.link/api/reviews/place/${markerId}`
-      );
-      setReviews(response.data);
-    } catch (error) {
-      console.error("리뷰를 가져오는 데 실패했습니다:", error);
-    }
-  };
 
   useEffect(() => {
     const fetchMarkerData = async () => {
@@ -76,12 +62,20 @@ function SingleMarkerMap({ markerId }) {
         if (markerResponse.data.Work) {
           setWork(markerResponse.data.Work);
         }
-
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching marker data:", error);
         setError("데이터를 가져오는 데 실패했습니다.");
-        setLoading(false);
+      }
+    };
+
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get(
+          `https://findus-jp.link/api/reviews/place/${markerId}`
+        );
+        setReviews(response.data);
+      } catch (error) {
+        console.error("리뷰를 가져오는 데 실패했습니다:", error);
       }
     };
 
@@ -90,7 +84,6 @@ function SingleMarkerMap({ markerId }) {
         const response = await axios.get(`https://findus-jp.link/api/auth/session-check`, {
           withCredentials: true,
         });
-        console.log("Login check response:", response.data);
         setUser(response.data.user);
       } catch (error) {
         console.error("로그인 상태 확인 실패:", error);
@@ -99,8 +92,8 @@ function SingleMarkerMap({ markerId }) {
     };
 
     fetchMarkerData();
-    checkLoginStatus();
     fetchReviews();
+    checkLoginStatus();
   }, [markerId]);
 
   const handleImageError = (e) => {
@@ -138,26 +131,19 @@ function SingleMarkerMap({ markerId }) {
     setReviews((prevReviews) => [newReview, ...prevReviews]);
   };
 
-  if (loading) return <Spin tip="로딩 중..." className="loading-spinner" />;
-
-  if (error)
-    return (
-      <Alert
-        message="에러"
-        description={error}
-        type="error"
-        showIcon
-        className="error-alert"
-      />
-    );
-
-  if (!markerData) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="single-marker-container">
       <div className="content-wrapper">
+        {error && (
+          <Alert
+            message="에러"
+            description={error}
+            type="error"
+            showIcon
+            className="error-alert"
+          />
+        )}
+
         <div className="image-carousel">
           <Carousel
             showThumbs={true}
@@ -169,7 +155,7 @@ function SingleMarkerMap({ markerId }) {
               sortedImages.map((image, index) => (
                 <img
                   key={index}
-                  src={`https://findus-jp.link${image.image_url}`}
+                  src={`https://findus-jp.link/${image.image_url}`}
                   alt={`Thumbnail ${index + 1}`}
                   onError={handleImageError}
                 />
@@ -179,7 +165,7 @@ function SingleMarkerMap({ markerId }) {
             {sortedImages.map((image, index) => (
               <div key={index}>
                 <Image
-                  src={`https://findus-jp.link${image.image_url}`}
+                  src={`https://findus-jp.link/${image.image_url}`}
                   alt={`Location ${index + 1}`}
                   onError={handleImageError}
                   preview={{
@@ -192,9 +178,6 @@ function SingleMarkerMap({ markerId }) {
         </div>
 
         <div className="marker-header">
-          <div className="marker-title">
-            {/*<Title level={2}>{markerData.place_name}</Title>*/}
-          </div>
           <div className="marker-actions">
             <BookmarkButton placeId={markerId} />
             <Button onClick={handleCopyShareLink} icon={<ShareAltOutlined />}>
@@ -205,138 +188,142 @@ function SingleMarkerMap({ markerId }) {
 
         <Divider className="info-divider" />
 
-        <div className="info-panel-content">
-          <List
-            itemLayout="horizontal"
-            dataSource={[0]}
-            renderItem={() => (
-              <>
-                <List.Item className="info-section">
-                  <List.Item.Meta
-                    title={<strong className="info-title">상세 주소</strong>}
-                    description={
-                      <div className="address-container">
-                        <Text className="info-description">
-                          {markerData.detailed_address}
-                        </Text>
-                        <Button
-                          icon={<CopyOutlined />}
-                          onClick={handleCopyAddress}
-                        >
-                          복사
-                        </Button>
-                      </div>
-                    }
-                  />
-                </List.Item>
-                <List.Item className="info-section">
-                  <List.Item.Meta
-                    title={<strong className="info-title">작품 이름</strong>}
-                    description={
-                      <span className="info-description">
-                        {work ? work.work_name : "정보 없음"}
-                      </span>
-                    }
-                  />
-                </List.Item>
-                <List.Item className="info-section">
-                  <List.Item.Meta
-                    title={<strong className="info-title">설명</strong>}
-                    description={
-                      <span className="info-description">
-                        {markerData.description}
-                      </span>
-                    }
-                  />
-                </List.Item>
-                <Row gutter={16}>
-                  <Col span={12}>
-                    <List.Item className="info-section">
-                      <List.Item.Meta
-                        title={<strong className="info-title">시즌</strong>}
-                        description={
-                          <span className="info-description">
-                            {work ? work.work_season : "정보 없음"}
-                          </span>
-                        }
-                      />
-                    </List.Item>
-                  </Col>
-                  <Col span={12}>
-                    <List.Item className="info-section">
-                      <List.Item.Meta
-                        title={<strong className="info-title">에피소드</strong>}
-                        description={
-                          <span className="info-description">
-                            {work ? work.work_ep : "정보 없음"}
-                          </span>
-                        }
-                      />
-                    </List.Item>
-                  </Col>
-                </Row>
-                <Divider className="info-divider" />
-                <List.Item className="info-section">
-                  <List.Item.Meta
-                    title={<strong className="info-title">최근 촬영일</strong>}
-                    description={
-                      <span className="info-description">
-                        {markerData.latestshot_date}
-                      </span>
-                    }
-                  />
-                </List.Item>
-              </>
-            )}
-          />
-          <Divider className="info-divider" />
-          <Collapse accordion className="opening-hours-collapse">
-            <Panel header="영업시간" key="1">
-              <p>{formatOpeningHours(markerData.opening_hours)}</p>
-            </Panel>
-          </Collapse>
-          <Divider className="info-divider" />
+        {markerData ? (
+          <div className="info-panel-content">
+            <List
+              itemLayout="horizontal"
+              dataSource={[0]}
+              renderItem={() => (
+                <>
+                  <List.Item className="info-section">
+                    <List.Item.Meta
+                      title={<strong className="info-title">상세 주소</strong>}
+                      description={
+                        <div className="address-container">
+                          <Text className="info-description">
+                            {markerData.detailed_address}
+                          </Text>
+                          <Button
+                            icon={<CopyOutlined />}
+                            onClick={handleCopyAddress}
+                          >
+                            복사
+                          </Button>
+                        </div>
+                      }
+                    />
+                  </List.Item>
+                  <List.Item className="info-section">
+                    <List.Item.Meta
+                      title={<strong className="info-title">작품 이름</strong>}
+                      description={
+                        <span className="info-description">
+                          {work ? work.work_name : "정보 없음"}
+                        </span>
+                      }
+                    />
+                  </List.Item>
+                  <List.Item className="info-section">
+                    <List.Item.Meta
+                      title={<strong className="info-title">설명</strong>}
+                      description={
+                        <span className="info-description">
+                          {markerData.description}
+                        </span>
+                      }
+                    />
+                  </List.Item>
+                  <Row gutter={16}>
+                    <Col span={12}>
+                      <List.Item className="info-section">
+                        <List.Item.Meta
+                          title={<strong className="info-title">시즌</strong>}
+                          description={
+                            <span className="info-description">
+                              {work ? work.work_season : "정보 없음"}
+                            </span>
+                          }
+                        />
+                      </List.Item>
+                    </Col>
+                    <Col span={12}>
+                      <List.Item className="info-section">
+                        <List.Item.Meta
+                          title={<strong className="info-title">에피소드</strong>}
+                          description={
+                            <span className="info-description">
+                              {work ? work.work_ep : "정보 없음"}
+                            </span>
+                          }
+                        />
+                      </List.Item>
+                    </Col>
+                  </Row>
+                  <Divider className="info-divider" />
+                  <List.Item className="info-section">
+                    <List.Item.Meta
+                      title={<strong className="info-title">최근 촬영일</strong>}
+                      description={
+                        <span className="info-description">
+                          {markerData.latestshot_date}
+                        </span>
+                      }
+                    />
+                  </List.Item>
+                </>
+              )}
+            />
+            <Divider className="info-divider" />
+            <Collapse accordion className="opening-hours-collapse">
+              <Panel header="영업시간" key="1">
+                <p>{formatOpeningHours(markerData.opening_hours)}</p>
+              </Panel>
+            </Collapse>
+            <Divider className="info-divider" />
 
-          <div className="map-container">
-            <LoadScript
-              googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
-            >
-              <GoogleMap
-                mapContainerStyle={mapContainerStyle}
-                center={{
-                  lat: parseFloat(markerData.latitude),
-                  lng: parseFloat(markerData.longitude),
-                }}
-                zoom={18}
-                onClick={handleMapClick}
-                options={{
-                  fullscreenControl: true,
-                  zoomControl: false,
-                  mapTypeControl: false,
-                  streetViewControl: false,
-                  scaleControl: false,
-                  rotateControl: false,
-                }}
+            <div className="map-container">
+              <LoadScript
+                googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
               >
-                <Marker
-                  position={{
+                <GoogleMap
+                  mapContainerStyle={mapContainerStyle}
+                  center={{
                     lat: parseFloat(markerData.latitude),
                     lng: parseFloat(markerData.longitude),
                   }}
-                />
-              </GoogleMap>
-            </LoadScript>
+                  zoom={18}
+                  onClick={handleMapClick}
+                  options={{
+                    fullscreenControl: true,
+                    zoomControl: false,
+                    mapTypeControl: false,
+                    streetViewControl: false,
+                    scaleControl: false,
+                    rotateControl: false,
+                  }}
+                >
+                  <Marker
+                    position={{
+                      lat: parseFloat(markerData.latitude),
+                      lng: parseFloat(markerData.longitude),
+                    }}
+                  />
+                </GoogleMap>
+              </LoadScript>
+            </div>
+
+            <Divider className="info-divider" />
+
+            <ReviewForm
+              placeId={markerId}
+              user={user}
+              onReviewSubmitted={handleReviewSubmitted}
+            />
+            <ReviewList reviews={reviews} />
           </div>
-
-          <Divider className="info-divider" />
-
-          <ReviewForm
-            placeId={markerId}
-            user={user}
-            onReviewSubmitted={handleReviewSubmitted}
-          />
-          <ReviewList reviews={reviews} />
-        </div>
+        ) : (
+          <Spin tip="상세 정보 로딩 중..." />
+        )}
       </div>
       <ScrollToTopButton />
     </div>

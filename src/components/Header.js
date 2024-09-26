@@ -1,38 +1,40 @@
-// src/components/Header.js
 import React from "react";
 import { Layout, Button } from "antd";
-import { BellOutlined, LoginOutlined, LogoutOutlined } from "@ant-design/icons";
+import { GiftOutlined, LoginOutlined, LogoutOutlined } from "@ant-design/icons";
 import { useAuth } from "../context/AuthContext";
-import { Link } from "react-router-dom";
-
-
+import { Link, useNavigate } from "react-router-dom";
 import "../css/Header.css";
 
 const { Header } = Layout;
 
 const CustomHeader = () => {
   const { isLoggedIn, user, login, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleEventClick = () => {
+    navigate("/event");
+  };
 
   return (
     <div className="header-container">
       <Header className="header">
         <div className="logo-container">
           <h1>
-                  <Link to="/">FIND US</Link>
+            <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+              FIND US
+            </Link>
           </h1>
         </div>
         <div className="button-group">
           {isLoggedIn ? (
             <>
-              <span className="user-greeting">
-                안녕하세요, {user?.user_name}님!
-              </span>
+              <span className="user-greeting">안녕하세요, {user?.user_name}님!</span>
               <Button
                 icon={<LogoutOutlined />}
                 type="link"
                 className="logout-button"
                 onClick={logout}
-              ></Button>
+              />
             </>
           ) : (
             <Button
@@ -40,12 +42,13 @@ const CustomHeader = () => {
               type="link"
               className="login-button"
               onClick={login}
-            ></Button>
+            />
           )}
           <Button
-            icon={<BellOutlined />}
+            icon={<GiftOutlined />}
             type="link"
             className="notification-button"
+            onClick={handleEventClick}
           />
         </div>
       </Header>

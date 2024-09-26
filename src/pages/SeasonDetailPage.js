@@ -100,7 +100,7 @@ function SeasonDetailPage() {
       <Card className="season-info-card">
         {seasonDetails.poster && (
           <Image
-            src={`https://findus-jp.link${seasonDetails.poster}`}
+            src={`https://findus-jp.link/${seasonDetails.poster}`}
             alt={seasonDetails.work_name}
             className="season-poster"
           />
@@ -149,7 +149,7 @@ function SeasonDetailPage() {
                 img.image_url.includes("realPlace")
               );
               if (realPlaceImage) {
-                imageUrl = `https://findus-jp.link${realPlaceImage.image_url}`;
+                imageUrl = `https://findus-jp.link/${realPlaceImage.image_url}`;
               }
             }
 

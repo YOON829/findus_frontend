@@ -88,10 +88,10 @@ const MyPage = () => {
     const imageTypes = ['realPlace', 'aniPlace', 'userUpload'];
     for (const type of imageTypes) {
       const image = images.find(img => img.image_url.includes(type));
-      if (image) return `https://findus-jp.link${image.image_url}`;
+      if (image) return `https://findus-jp.link/${image.image_url}`;
     }
 
-    return `https://findus-jp.link${images[0].image_url}`;
+    return `https://findus-jp.link/${images[0].image_url}`;
   };
 
   const handleImageError = (e) => {

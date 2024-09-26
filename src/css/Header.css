@@ -21,7 +21,7 @@
   max-width: 480px;
   height: 57px;
   background-color: #ffffff;
-  color: #ff4081;
+  color: #ff4081 !important;
   box-sizing: border-box;
   padding: 0 13px;
 }
@@ -30,6 +30,10 @@
 .logo-container {
   flex: 1;
   margin-left: 0px; /* 로고를 왼쪽에서 20px 떨어지게 */
+}
+
+.logo-container a {
+  color: #ff4081
 }
 
 .header h1 {

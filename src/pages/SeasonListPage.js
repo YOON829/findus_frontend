@@ -69,10 +69,10 @@ function SeasonListPage() {
                         ? `https://findus-jp.link${season.poster}`
                         : `https://findus-jp.link/uploads/poster/default_poster.webp`
                     }
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = `https://findus-jp.link/uploads/poster/default_poster.webp`;
-                    }}
+                    // onError={(e) => {
+                    //   e.target.onerror = null;
+                    //   e.target.src = `${apiUrl}/uploads/poster/default_poster.webp`;
+                    // }}
                   />
                 }
                 className="season-card"

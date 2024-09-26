@@ -30,7 +30,7 @@ const InfoPanel = ({ selectedMarker }) => {
   const [realPlaceImages, setRealPlaceImages] = useState([]);
   const [error, setError] = useState(null);
 
-  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_API_URL || "https://findus-jp.link";
 
   const navigate = useNavigate();
 
@@ -117,7 +117,7 @@ const InfoPanel = ({ selectedMarker }) => {
             {realPlaceImages.map((image, index) => (
               <div key={index} className="image-item">
                 <Image
-                  src={`https://findus-jp.link${image.image_url}`}
+                  src={`https://findus-jp.link/${image.image_url}`}
                   alt={`Image ${index + 1}`}
                   onError={handleImageError}
                   preview={{

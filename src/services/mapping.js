@@ -1,4 +1,3 @@
-// src/services/mappings.js
 
 export const mappings = {
     region: {

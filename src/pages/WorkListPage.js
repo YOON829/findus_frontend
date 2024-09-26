@@ -8,8 +8,6 @@ import "../css/WorkListPage.css";
 const { Meta } = Card;
 const { Title } = Typography;
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 function WorkListPage() {
   const [works, setWorks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -67,13 +65,13 @@ function WorkListPage() {
                     alt={work.work_name}
                     src={
                       work.poster
-                        ? `https://findus-jp.link${work.poster}`
+                        ? `https://findus-jp.link/${work.poster}`
                         : "../uploads/poster/default_poster.webp"
                     }
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = "../uploads/poster/default_poster.webp";
-                    }}
+                    // onError={(e) => {
+                    //   e.target.onerror = null;
+                    //   e.target.src = "../uploads/poster/default_poster.webp";
+                    // }}
                   />
                 }
                 className="work-card"
