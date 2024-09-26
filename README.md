@@ -312,15 +312,13 @@ GET /api/regions
   "이시카와",
   "치바"
 ]
+```
 7. GET /api/regions/
 설명: 특정 지역에 속한 도시 목록을 가져옵니다.
 요청 예시:
-bash
-코드 복사
 GET /api/regions/tokyo
 응답 예시:
-json
-코드 복사
+```json
 {
   "region": "도쿄",
   "cities": [
